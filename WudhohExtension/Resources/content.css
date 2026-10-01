@@ -1,0 +1,213 @@
+// بيانات المنتجات لتجربة التمرير (يمكن ربطها مستقبلاً/*/* Container الملازم لأسفل الشاشة */
+.wudhoh-sheet-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2147483647;
+    display: flex;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    pointer-events: none;
+}
+
+/* بطاقة التصميم بأبعاد الآيفون */
+.wudhoh-sheet-card {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 430px;
+    background-color: #ffffff;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    padding: 24px 20px 34px 20px;
+    box-shadow: 0px -10px 40px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Header */
+.wudhoh-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.wudhoh-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d151c;
+    margin: 0 0 6px 0;
+}
+
+.wudhoh-subtitle-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wudhoh-subtitle {
+    font-size: 13px;
+    color: #8c9ba5;
+}
+
+.wudhoh-dots, .wudhoh-small-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.dot, .s-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    transition: background-color 0.2s ease;
+}
+
+.dot.active, .s-dot.active {
+    background-color: #2563eb;
+}
+
+/* Close Button */
+.wudhoh-close-button {
+    background-color: #f2f4f6;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 14px;
+    color: #6c7a89;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dividers */
+.wudhoh-divider {
+    height: 1px;
+    background-color: #f0f2f5;
+    margin: 16px 0;
+}
+
+/* Carousel & Swipe Behavior */
+.wudhoh-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* إخفاء شريط التمرير */
+}
+
+.wudhoh-carousel::-webkit-scrollbar {
+    display: none; /* إخفاء شريط التمرير في كروم وسفاري */
+}
+
+.wudhoh-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+}
+
+/* Product Section */
+.wudhoh-product-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.wudhoh-product-image-placeholder {
+    width: 52px;
+    height: 52px;
+    background-color: #eef1f4;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.wudhoh-product-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0d151c;
+    margin: 0;
+}
+
+.wudhoh-product-meta {
+    font-size: 13px;
+    color: #6c7a89;
+    margin: 4px 0 0 0;
+}
+
+/* Policy Details */
+.wudhoh-policy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.wudhoh-policy-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wudhoh-policy-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #0d151c;
+}
+
+.wudhoh-icon-box {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blue-box { background-color: #eff6ff; }
+.purple-box { background-color: #f5f3ff; }
+
+.wudhoh-policy-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0d151c;
+}
+
+/* Footer & Actions */
+.wudhoh-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+.wudhoh-link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wudhoh-link {
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.wudhoh-primary-btn {
+    width: 100%;
+    height: 52px;
+    background-color: #05b77a;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}

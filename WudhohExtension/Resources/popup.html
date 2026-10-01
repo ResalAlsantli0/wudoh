@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        html, body {
+            width: 100%;
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            direction: rtl;
+            text-align: right;
+            overflow: hidden;
+        }
+
+        .wudhoh-container {
+            width: 100%;
+            padding: 20px 18px 24px 18px;
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        .wudhoh-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .wudhoh-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #0d151c;
+            margin-bottom: 4px;
+        }
+
+        .wudhoh-subtitle-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wudhoh-subtitle {
+            font-size: 13px;
+            color: #8c9ba5;
+        }
+
+        .wudhoh-dots {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #d1d5db;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .dot.active {
+            background-color: #2563eb;
+            transform: scale(1.15);
+        }
+
+        .wudhoh-divider {
+            height: 1px;
+            background-color: #f0f2f5;
+            margin: 14px 0;
+        }
+
+        /* Carousel */
+        .wudhoh-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .wudhoh-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .wudhoh-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        /* Product Card */
+        .wudhoh-product-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .wudhoh-product-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .wudhoh-product-image-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: #eef1f4;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .wudhoh-product-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0d151c;
+            line-height: 1.3;
+        }
+
+        .wudhoh-product-meta {
+            font-size: 12px;
+            color: #6c7a89;
+            margin-top: 3px;
+        }
+
+        /* Policy List */
+        .wudhoh-policy-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .wudhoh-policy-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wudhoh-policy-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0d151c;
+        }
+
+        .wudhoh-icon-box {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blue-box { background-color: #eff6ff; }
+        .purple-box { background-color: #f5f3ff; }
+
+        .wudhoh-policy-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0d151c;
+        }
+
+        /* Footer */
+        .wudhoh-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .wudhoh-link-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wudhoh-link {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .wudhoh-primary-btn {
+            width: 100%;
+            height: 48px;
+            background-color: #05b77a;
+            color: #ffffff;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .wudhoh-empty-state {
+            padding: 20px 0;
+            text-align: center;
+            color: #8c9ba5;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wudhoh-container">
+        <!-- Header -->
+        <div class="wudhoh-header">
+            <div>
+                <h2 class="wudhoh-title">سياسة الاسترجاع والاستبدال</h2>
+                <div class="wudhoh-subtitle-row">
+                    <span id="wudhoh-counter" class="wudhoh-subtitle">جاري التحميل...</span>
+                    <div id="wudhoh-dots" class="wudhoh-dots"></div>
+                </div>
+            </div>
+            <!-- تم حذف زر X الداخلي لمنع التكرار -->
+        </div>
+
+        <div class="wudhoh-divider"></div>
+
+        <!-- Carousel -->
+        <div id="wudhoh-carousel" class="wudhoh-carousel">
+            <div class="wudhoh-empty-state" id="wudhoh-loading">جاري قراءة منتجات السلة...</div>
+        </div>
+
+        <div class="wudhoh-divider"></div>
+
+        <!-- Footer -->
+        <div class="wudhoh-footer">
+            <div class="wudhoh-link-row">
+                <a href="#" class="wudhoh-link">عرض السياسة كاملة</a>
+            </div>
+            <button id="wudhoh-continue-btn" class="wudhoh-primary-btn">حفظ المنتجات</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
