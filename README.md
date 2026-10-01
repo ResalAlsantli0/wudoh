@@ -98,7 +98,3 @@ For local development, update the analysis endpoint in `WudhohExtension/Resource
 
 Wudhoh is a prototype and portfolio project. Storefront markup varies, so extraction logic may need adapters and additional testing for each supported merchant.
 
-## Credits
-
-Originally developed collaboratively by the **Wudhoh team**. This independent public snapshot is maintained by [ResalAlsantli0](https://github.com/ResalAlsantli0) for portfolio presentation, with the original private team repository and its history left unchanged.
-
